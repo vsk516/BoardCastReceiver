@@ -12,11 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    CheckBox myChechBox;
     private IntentFilter filter = new IntentFilter(Intent.ACTION_TIME_TICK);
 
     private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -24,12 +26,15 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Toast.makeText(getBaseContext(), "Action_Time_Tick intent Received", Toast.LENGTH_LONG).show();
         }
+
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myChechBox = (CheckBox) findViewById(R.id.myCheckBox);
 
     }
 
